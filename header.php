@@ -57,15 +57,17 @@
 
 <!-- Cursor logo goes here -->
 		<div class="logo-box">
-			<h1>
-				<div class="logo">
-				&gt;<span class="cursor">/</span>&lt;
-				</div>
-			</h1>
+			<a href="<?php get_home_url(); ?>">
+				<h1>
+					<div class="logo">
+					&gt;<span class="cursor">/</span>&lt;
+					</div>
+				</h1>
 
-			<div class="logo-name">
-				tammykimkim
-			</div>
+				<div class="logo-name">
+					tammykimkim
+				</div>
+			</a> 
 		</div> <!-- end .logo-box -->
 
 			<h2 class="site-description">
@@ -75,7 +77,8 @@
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 			<button class="menu-toggle"><?php _e( 'Primary Menu', 'one-page-theme' ); ?></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+			<?php wp_nav_menu( array( 
+			'theme_location' => 'primary' ) ); ?>
 		</nav><!-- #site-navigation -->
 
 	<div id="content" class="site-content">

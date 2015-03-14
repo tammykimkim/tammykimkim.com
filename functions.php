@@ -32,6 +32,14 @@ function one_page_theme_setup() {
 	 */
 	load_theme_textdomain( 'one-page-theme', get_template_directory() . '/languages' );
 
+	/* This theme uses post thumbnails (aka "featured images")
+	*  all images will be cropped to thumbnail size (below), as well as
+	*  a square size (also below). You can add more of your own crop
+	*  sizes with add_image_size. */
+	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size(120, 90, true);
+	add_image_size('square', 150, 150, true);
+
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
@@ -42,7 +50,9 @@ function one_page_theme_setup() {
 	 */
 	//add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in one location.
+	/* This theme uses wp_nav_menu() in one location.
+	* You can allow clients to create multiple menus by
+  * adding additional menus to the array. */
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'one-page-theme' ),
 		'secondary' => __('Secondary Menu', 'one-page-theme' ),
@@ -68,6 +78,18 @@ function one_page_theme_setup() {
 }
 endif; // one_page_theme_setup
 add_action( 'after_setup_theme', 'one_page_theme_setup' );
+
+// Adding Google Fonts & Font Awesome links
+// Add Google Fonts and Font Awesome
+	function load_fonts() {
+		wp_register_style('google-fonts', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '') . '://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300,400,200');
+		wp_enqueue_style('google-fonts');
+
+		wp_register_style('font-awesome', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '') . '://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
+		wp_enqueue_style('font-awesome');
+
+	}
+	add_action('wp_print_styles', 'load_fonts');
 
 /**
  * Register widget area.
@@ -103,13 +125,43 @@ function one_page_theme_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	/* Add all our JavaScript files here.
+	We'll let WordPress add them to our templates automatically instead
+	of writing our own script tags in the header and footer. */
+
+		//Don't use WordPress' local copy of jquery, load our own version from a CDN instead
+		wp_deregister_script('jquery');
+	  wp_enqueue_script(
+	  	'jquery',
+	  	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js",
+	  	false, //dependencies
+	  	null, //version number
+	  	true //load in footer
+	  );
+
+	  wp_enqueue_script(
+	    'plugins', //handle
+	    get_template_directory_uri() . '/js/plugins.js', //source
+	    false, //dependencies
+	    null, // version number
+	    true //load in footer
+	  );
+
+	  wp_enqueue_script(
+	    'scripts', //handle
+	    get_template_directory_uri() . '/js/scripts.js', //source
+	    array( 'jquery', 'plugins' ), //dependencies
+	    null, // version number
+	    true //load in footer
+	  );
 }
 add_action( 'wp_enqueue_scripts', 'one_page_theme_scripts' );
 
 function add_scripts() {
   wp_deregister_script( 'jquery' );
-  wp_enqueue_script('jquery',            'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"',   array(),         '1.11.1',false);
-  wp_enqueue_script('scripts',           get_bloginfo('template_directory') . "/js/scripts.js",                  array('jquery'), '1.0.0', false);
+  wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"', array(), '1.11.1',false);
+  wp_enqueue_script('scripts', get_bloginfo('template_directory') . "/js/scripts.js", array('jquery'), '1.0.0', false);
 }
 
 add_action( 'wp_enqueue_scripts', 'add_scripts' );

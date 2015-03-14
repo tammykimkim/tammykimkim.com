@@ -46,6 +46,8 @@ and Blueprint http://www.blueprintcss.org/
 12.0 - Media
 	12.1 - Captions
 	12.2 - Galleries
+13.0 - Footer
+14.0 - Colours
 
 
 
@@ -364,17 +366,17 @@ textarea {
 /*--------------------------------------------------------------
 5.1 Links
 --------------------------------------------------------------*/
-a {
+/*a {
 	color: royalblue;
 }
 a:visited {
 	color: purple;
-}
-a:hover,
+}*/
+/*a:hover,
 a:focus,
 a:active {
-	color: midnightblue;
-}
+	color: #ff66cc;
+}*/
 
 /*--------------------------------------------------------------
 5.2 Menus
@@ -399,13 +401,30 @@ a:active {
 		top: 0;
 		left: 100px;
 		z-index: 100;
+	  background-color: #1c1c1c;
+	  width: 100px;
+	  height: 150px;
+	}
+	.logo,
+	.logo-box,
+	.logo-box a {
 	  color:#fff;
-	  background: #1c1c1c;
-		-webkit-transition:color 1s;
+		text-decoration: none;
+		cursor: pointer;
 	}
 	.logo-box:hover {
+		background-color: #ff66cc;
+			-moz-transition: all 0.2s linear;
+	    -webkit-transition: all 0.2s linear; /* WebKit */
+	    -o-transition: all 0.2s linear; /* Opera */
+	    transition: all 0.2s linear; /* Standard */
+	}
+	.logo-name:hover {
 		color: #ff66cc;
-		cursor: default;
+			-moz-transition: all 0.2s linear;
+	    -webkit-transition: all 0.2s linear; /* WebKit */
+	    -o-transition: all 0.2s linear; /* Opera */
+	    transition: all 0.2s linear; /* Standard */
 	}
 	.logo {
 		font-family: arial, sans-serif;
@@ -413,7 +432,6 @@ a:active {
 		top: 7px;
 		font-size: 4rem;
 	}
-
 	.logo-name {
 		font-family: 'Yanone Kaffeesatz', sans-serif;
 		font-weight: 400;
@@ -421,24 +439,26 @@ a:active {
 		font-size: 16px;
 		text-transform: uppercase;
 		position: relative;
-		top: 30px;
+		padding-top: 20px;
 		color: #1c1c1c;
 	}
 
 	.cursor {
-	  animation: blinker 0.4s linear 1.7s 5 alternate forwards; /* Standard syntax */
-		-webkit-animation: blinker 0.4s linear 1.7s 5 alternate forwards; /*Chrome, Safari, Opera*/
+	  animation: blinker 0.4s linear 1.7s 15 alternate forwards; /* Standard syntax */
+		-webkit-animation: blinker 0.4s linear 1.7s 15 alternate forwards; /*Chrome, Safari, Opera*/
   }
 
   @-webkit-keyframes blinker {
-      from {color: black;}
-      to {color: white;}
+      from {opacity: 0;}
+      to {opacity: 1;}
   }
 
   @keyframes blinker {
-      from {color: black;}
-      to {color: white;}
+	  	from {opacity: 0;}
+	  	to {opacity: 1;}
   }
+
+
 
 /*--------------------------------------------------------------
 5.4 Main-Navigation
@@ -465,7 +485,7 @@ a:active {
 	width: 100%;
 }
 .main-navigation ul {
-	background: rgba(50,50,50,0.5);	
+	background: rgba(28,28,28,0.5);	
 	list-style: none;
 	width: 100%;
 	margin: 0;
@@ -486,9 +506,6 @@ a:active {
 
 .main-navigation li a:hover {
 	color: #ff66cc;
-}
-.main-navigation li a:active {
-	background: pink;
 }
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -763,7 +780,7 @@ section {
 	margin-bottom: 1.5em;
 }
 .portfolio-piece {
-	border: 1px solid black;
+	border: 1px solid #1c1c1c;
 	float: left;
 	height: 200px;
 }
@@ -826,3 +843,46 @@ article {
 	padding-top: 50px;
 	outline: 0
 }
+
+/*--------------------------------------------------------------
+13.0 Footer
+--------------------------------------------------------------*/
+	.footer-box {
+		position: fixed;
+		padding-top: 10px;
+		padding-bottom: 20px;
+		text-align: center;
+		bottom: 0;
+		left: 100px;
+		z-index: 100;
+	  background-color: #1c1c1c;
+		color: #1c1c1c;
+		height: 40px;
+		width: 100px;
+		-webkit-transition:background 0.2s, height 0.2s;
+	}
+	.footer-box:hover,
+	.fa:hover {
+		height: 80px;
+		color: #fff;
+		background-color: #9ACD32;
+			-moz-transition: all 0.2s linear;
+	    -webkit-transition: all 0.2s linear; /* WebKit */
+	    -o-transition: all 0.2s linear; /* Opera */
+	    transition: all 0.2s linear; /* Standard */
+	}
+	.fa {
+		color: #1c1c1c;
+	}
+
+	/*--------------------------------------------------------------
+	14.0 Colours
+	--------------------------------------------------------------*/
+	#9ACD32;
+	rgb(154,205,50);
+
+	#ff66cc;
+	rgb(255,102,204);
+
+	#1c1c1c;
+	rgb(28,28,28);
