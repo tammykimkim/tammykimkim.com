@@ -32,6 +32,8 @@ and Blueprint http://www.blueprintcss.org/
 5.0 - Navigation
 	5.1 - Links
 	5.2 - Menus
+	5.3 - Logo
+	5.4 - Main-navigation
 6.0 - Accessibility
 7.0 - Alignments
 8.0 - Clearings
@@ -387,17 +389,15 @@ a:active {
 	display: none;
 }
 
-/***********************************************/
-/* Logo       															   */
-/***********************************************/
+/*--------------------------------------------------------------
+5.3 Logo
+--------------------------------------------------------------*/
 	.logo-box {
 		position: fixed;
-		padding-top: 75px;
-		padding-right: 33px;
-		padding-left: 33px;
-		padding-bottom: 40px;
+		padding-top: 60px;
 		text-align: center;
 		top: 0;
+		left: 100px;
 		z-index: 100;
 	  color:#fff;
 	  background: #1c1c1c;
@@ -415,13 +415,19 @@ a:active {
 	}
 
 	.logo-name {
-		font-size: 10px;
-		letter-spacing: 1.2px;
+		font-family: 'Yanone Kaffeesatz', sans-serif;
+		font-weight: 400;
+		letter-spacing: 0.3rem;
+		font-size: 16px;
+		text-transform: uppercase;
+		position: relative;
+		top: 30px;
+		color: #1c1c1c;
 	}
 
 	.cursor {
-		-webkit-animation: blinker 0.4s linear 1.7s 5 alternate forwards; /*Chrome, Safari, Opera*/
 	  animation: blinker 0.4s linear 1.7s 5 alternate forwards; /* Standard syntax */
+		-webkit-animation: blinker 0.4s linear 1.7s 5 alternate forwards; /*Chrome, Safari, Opera*/
   }
 
   @-webkit-keyframes blinker {
@@ -434,25 +440,40 @@ a:active {
       to {color: white;}
   }
 
-  /***********************************************/
-  /* End Logo       													   */
-  /***********************************************/
-
+/*--------------------------------------------------------------
+5.4 Main-Navigation
+--------------------------------------------------------------*/
+  nav {
+  	position: relative;
+  	z-index: 99;
+  }
+  nav a {
+  	display: inline;
+  	float: left;
+  	color: #fff;
+  	outline: 0
+  }
+  nav a:hover,nav a:visited  {
+  	color: #fff;	
+  }
 .main-navigation {
-	clear: both;
-	display: block;
-	float: left;
-	padding-top: 70px;
-	height: 100%;
-	width: 140px;
 	font-family: 'Yanone Kaffeesatz', sans-serif;
 	font-weight: 200;
 	letter-spacing: 0.2rem;
+	display: inline-block;
+	float: left;
+	width: 100%;
 }
 .main-navigation ul {
+	background: rgba(50,50,50,0.5);	
 	list-style: none;
+	width: 100%;
 	margin: 0;
-	padding-left: 0;
+	padding-left: 250px;
+	position: fixed;
+}
+.main-navigation li {
+	display: inline-block;
 }
 .main-navigation li a {
 	text-align:center;
@@ -735,7 +756,6 @@ object {
 12.2 Galleries
 --------------------------------------------------------------*/
 section {
-	padding-top: 5px P;
 	min-height: 700px;
 }
 
@@ -792,6 +812,7 @@ section {
 	width: 70%;
 	margin-left: 20%;
 	margin-right: 10%;
+	padding-top: 100px;
 }
 #secondary {
 	float: right;	
@@ -800,22 +821,7 @@ h1 {
 	font-size: 1.8em;
 	margin: 10px 0
 }
-nav {
-	margin: 200px 0;
-	background: #222;	
-	position: fixed;
-	top: 0;
-	left: 0;
-}
-nav a {
-	display: block;
-	float: left;
-	color: #fff;
-	outline: 0
-}
-nav a:hover,nav a:visited  {
-	color: #fff;	
-}
+
 article {
 	padding-top: 50px;
 	outline: 0
