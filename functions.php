@@ -82,7 +82,7 @@ add_action( 'after_setup_theme', 'one_page_theme_setup' );
 // Adding Google Fonts & Font Awesome links
 // Add Google Fonts and Font Awesome
 	function load_fonts() {
-		wp_register_style('google-fonts', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '') . '://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300,400,200');
+		wp_register_style('google-fonts', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '') . ':fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300,400,200');
 		wp_enqueue_style('google-fonts');
 
 		wp_register_style('font-awesome', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '') . '://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');

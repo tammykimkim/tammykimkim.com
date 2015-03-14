@@ -783,9 +783,12 @@ section {
 	border: 1px solid #1c1c1c;
 	float: left;
 	height: 200px;
-}
-.portfolio-piece {
 	background-size: cover;
+	-webkit-filter:grayscale(100%);
+	-webkit-transition:-webkit-filter 1s;
+}
+.portfolio-piece:hover {
+	-webkit-filter:grayscale(0%);
 }
 .portfolio-piece:first-child {
 	width: 30%;
@@ -827,7 +830,7 @@ section {
 }
 #primary {
 	width: 70%;
-	margin-left: 20%;
+	margin-left: 260px;
 	margin-right: 10%;
 	padding-top: 100px;
 }
@@ -847,6 +850,12 @@ article {
 /*--------------------------------------------------------------
 13.0 Footer
 --------------------------------------------------------------*/
+footer {
+	text-align: right;
+	max-width: 1200px;
+	margin: 0 auto;
+	bottom: 0;
+}
 	.footer-box {
 		position: fixed;
 		padding-top: 10px;
@@ -873,6 +882,16 @@ article {
 	}
 	.fa {
 		color: #1c1c1c;
+	}
+
+	.site-info {
+		font-family: 'Yanone Kaffeesatz', sans-serif;
+		font-weight: 300;
+		font-size: 14px;
+		letter-spacing: 0.1rem;
+		display: inline-block;
+		float: right;
+		width: 100%;
 	}
 
 	/*--------------------------------------------------------------

@@ -24,12 +24,12 @@
 			</a>
 		</div> <!-- end .footer-box -->
 
-		<div>
-			&copy; HackerYou <?php echo date('Y'); ?>
+		<div class="site-info">
+			&copy; All Rights Reserved, <?php echo date('Y'); ?>
 		</div>
 		
 			<div class="site-info">
-				<?php printf( __( 'Theme: %1$s by %2$s.', 'one-page-theme' ), 'One Page Theme', '<a href="http://tammykimkim.com/" rel="designer">tammykimkim.com</a>' ); ?>
+				<?php printf( __( 'Made with love: %1$s by %2$s.', 'one-page-theme' ), 'One Page Theme', '<a href="mailto:tammykimkim@me.com" rel="designer">Tammy Kim</a>' ); ?>
 			</div><!-- .site-info -->
 		</footer><!-- #colophon -->
 	</div><!-- #page -->

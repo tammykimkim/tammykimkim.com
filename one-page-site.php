@@ -27,7 +27,7 @@ get_header(); ?>
 			?>
 			<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>	
 
-				<h2><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h2>
+<!-- 				<h2><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h2> -->
 				<?php the_content(); ?>
 
 			<?php endwhile; endif; ?>
@@ -154,7 +154,7 @@ get_header(); ?>
 			?>
 			<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>	
 
-				<h2><?php the_title(); ?></h2>
+<!-- 				<h2><?php the_title(); ?></h2> -->
 				<?php the_content(); ?>
 
 			<?php endwhile; endif; ?>
