@@ -40,7 +40,6 @@
 
 <link rel="stylesheet" href="animate.css">
 
-
 <?php wp_head(); ?>
 </head>
 
@@ -57,7 +56,7 @@
 			</h1>
 
 <!-- Cursor logo goes here -->
-		<div class="logo-box animated bounceInDown">
+		<div class="logo-box animated fadeIn">
 			<a href="<?php get_home_url(); ?>">
 				<h1>
 					<div class="logo">

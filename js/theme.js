@@ -4,7 +4,7 @@
 
 ( function( $ ) {
 	
-	$("<?php the_permalink(); ?>").click(function() {
+	$("nav a").click(function() {
 		var link = $(this).attr('href');
 	    $('html, body').animate({
 	        scrollTop: $(link).offset().top
@@ -24,6 +24,17 @@
 		$('.scrollToTop').click(function(){
 			$('html, body').animate({scrollTop : 0},800);
 			return false;
+		});
+
+		// animated svg code:
+		document.addEventListener('DOMContentLoaded', function() {
+		    var svg = new Walkway({ 
+		      selector: '#logo',
+		      duration: '2000',
+		      easing: 'easeOutSine'
+		    });
+
+		    svg.draw();
 		});
 		
 } )( jQuery );

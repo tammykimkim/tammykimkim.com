@@ -112,7 +112,23 @@ add_action( 'widgets_init', 'one_page_theme_widgets_init' );
 /**
  * Enqueue scripts and styles.
  */
+
+/* Add all our JavaScript files here.
+We'll let WordPress add them to our templates automatically instead
+of writing our own script tags in the header and footer. */
+
 function one_page_theme_scripts() {
+
+	//Don't use WordPress' local copy of jquery, load our own version from a CDN instead
+	wp_deregister_script('jquery');
+  wp_enqueue_script(
+  	'jquery',
+  	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js",
+  	false, //dependencies
+  	null, //version number
+  	true //load in footer
+  );
+
 	wp_enqueue_style( 'one-page-theme-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'one-page-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
@@ -121,50 +137,14 @@ function one_page_theme_scripts() {
 
 	wp_enqueue_script( 'one-page-theme-custom', get_template_directory_uri() . '/js/theme.js', array('jquery'), '', true );
 
+	wp_enqueue_script( 'one-page-theme-walkway', get_template_directory_uri() . '/js/walkway.min.js', array('jquery'), '', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	/* Add all our JavaScript files here.
-	We'll let WordPress add them to our templates automatically instead
-	of writing our own script tags in the header and footer. */
-
-		//Don't use WordPress' local copy of jquery, load our own version from a CDN instead
-		wp_deregister_script('jquery');
-	  wp_enqueue_script(
-	  	'jquery',
-	  	"http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js",
-	  	false, //dependencies
-	  	null, //version number
-	  	true //load in footer
-	  );
-
-	  wp_enqueue_script(
-	    'plugins', //handle
-	    get_template_directory_uri() . '/js/plugins.js', //source
-	    false, //dependencies
-	    null, // version number
-	    true //load in footer
-	  );
-
-	  wp_enqueue_script(
-	    'scripts', //handle
-	    get_template_directory_uri() . '/js/scripts.js', //source
-	    array( 'jquery', 'plugins' ), //dependencies
-	    null, // version number
-	    true //load in footer
-	  );
 }
 add_action( 'wp_enqueue_scripts', 'one_page_theme_scripts' );
-
-function add_scripts() {
-  wp_deregister_script( 'jquery' );
-  wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"', array(), '1.11.1',false);
-  wp_enqueue_script('scripts', get_bloginfo('template_directory') . "/js/scripts.js", array('jquery'), '1.0.0', false);
-}
-
-add_action( 'wp_enqueue_scripts', 'add_scripts' );
 
 
 /**
@@ -191,3 +171,45 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/* Get rid of junk! - Gets rid of all the crap in the header that you dont need */
+
+function clean_shit_up() {
+	// windows live
+	remove_action('wp_head', 'rsd_link');
+	remove_action('wp_head', 'wlwmanifest_link');
+	// wordpress gen tag
+	remove_action('wp_head', 'wp_generator');
+	// comments RSS
+	remove_action( 'wp_head', 'feed_links_extra', 3 );
+	remove_action( 'wp_head', 'feed_links', 3 );
+}
+
+add_action('init', 'clean_shit_up');
+
+
+/* Here are some utility helper functions for use in your templates! */
+
+/* pre_r() - makes for easy debugging. <?php pre_r($post); ?> */
+function pre_r($obj) {
+	echo "<pre>";
+	print_r($obj);
+	echo "</pre>";
+}
+
+/* is_blog() - checks various conditionals to figure out if you are currently within a blog page */
+function is_blog () {
+	global  $post;
+	$posttype = get_post_type($post );
+	return ( ((is_archive()) || (is_author()) || (is_category()) || (is_home()) || (is_single()) || (is_tag())) && ( $posttype == 'post')  ) ? true : false ;
+}
+
+/* get_post_parent() - Returns the current posts parent, if current post if top level, returns itself */
+function get_post_parent($post) {
+	if ($post->post_parent) {
+		return $post->post_parent;
+	}
+	else {
+		return $post->ID;
+	}
+}

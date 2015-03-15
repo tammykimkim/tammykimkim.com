@@ -30,16 +30,25 @@ get_header(); ?>
 				<div class="cover-title animated fadeIn">
 					Hello.  I'm 
 					<astrong class="name animated fadeIn">
-						<span class="name pink2 animated fadeIn">Tammy</span><span class="name pink3 animated fadeIn">Kim</span><span class="name pink2 animated fadeIn">Kim.</span>
+						<span class="name pink1 animated fadeIn">Tammy</span><span class="name pink2 animated fadeIn">Kim</span><span class="name pink3 animated fadeIn">Kim.</span>
 					</strong>
 				</div>
 
 				<div class="cover-text animated fadeIn">
-					Front End<br>
-					<span class="featured">Web Developer</span><br>
-					<span class="featured2">/ Designer</span><br>
-					from<br>
-					Toronto.
+						Front End<br>
+						<span class="featured">Web Developer</span><br>
+						<span class="featured2">/ Designer</span><br>
+						from Toronto.
+				</div>
+
+				<div>
+					
+					<svg version="1.1" id="logo" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
+						 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+						 x="0px" y="0px" width="169px" height="86px" viewBox="0 0 169 86" style="enable-background:new 0 0 169 86;"
+						 xml:space="preserve">
+					</svg>
+
 				</div>
 
 
@@ -156,8 +165,8 @@ get_header(); ?>
 			<?php endwhile; endif; ?>
 			</div> <!-- #primary .content-area -->
 			
-		<?php get_footer(); ?>
 
+		<?php get_footer(); ?>
 		</section><!-- #contact -->
 
 
@@ -178,8 +187,12 @@ get_header(); ?>
 			?>
 			<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>	
 
-				<h2><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h2>
-				<?php the_content(); ?>
+				<h2><a href="<?php echo get_permalink(); ?>">&gt; <?php the_title(); ?> &lt;</a></h2>
+				<p class="date"><?php echo get_the_date('l, F j, Y'); ?> 
+
+				<div class="content">
+					<?php the_content(); ?>
+				</div>
 
 			<?php endwhile; endif; ?>
 			</div> <!-- #primary .content-area -->
