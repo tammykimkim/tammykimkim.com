@@ -38,7 +38,8 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
-<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300,400,200' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="animate.css">
+
 
 <?php wp_head(); ?>
 </head>
@@ -56,7 +57,7 @@
 			</h1>
 
 <!-- Cursor logo goes here -->
-		<div class="logo-box">
+		<div class="logo-box animated bounceInDown">
 			<a href="<?php get_home_url(); ?>">
 				<h1>
 					<div class="logo">
@@ -75,7 +76,7 @@
 			</h2>
 		</div>
 
-		<nav id="site-navigation" class="main-navigation" role="navigation">
+		<nav id="site-navigation" class="main-navigation animated fadeIn" role="navigation">
 			<button class="menu-toggle"><?php _e( 'Primary Menu', 'one-page-theme' ); ?></button>
 			<?php wp_nav_menu( array( 
 			'theme_location' => 'primary' ) ); ?>

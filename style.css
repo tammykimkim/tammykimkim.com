@@ -48,6 +48,7 @@ and Blueprint http://www.blueprintcss.org/
 	12.2 - Galleries
 13.0 - Footer
 14.0 - Colours
+15.0 - Custom CSS for sections
 
 
 
@@ -471,7 +472,8 @@ a:active {
   	display: inline;
   	float: left;
   	color: #fff;
-  	outline: 0
+  	outline: 0;
+  	text-decoration: none;
   }
   nav a:hover,nav a:visited  {
   	color: #fff;	
@@ -773,7 +775,7 @@ object {
 12.2 Galleries
 --------------------------------------------------------------*/
 section {
-	min-height: 700px;
+	min-height: 800px;
 }
 
 .portfolio {
@@ -820,33 +822,6 @@ section {
 	margin-left: 3%;
 }
 
-
-/*--------------------------------------------------------------
-13 Custom CSS for demo site
---------------------------------------------------------------*/
-#page {
-	width: 100%;
-	margin: 0 auto;
-}
-#primary {
-	width: 70%;
-	margin-left: 260px;
-	margin-right: 10%;
-	padding-top: 100px;
-}
-#secondary {
-	float: right;	
-}
-h1 {
-	font-size: 1.8em;
-	margin: 10px 0
-}
-
-article {
-	padding-top: 50px;
-	outline: 0
-}
-
 /*--------------------------------------------------------------
 13.0 Footer
 --------------------------------------------------------------*/
@@ -880,6 +855,9 @@ footer {
 	    -o-transition: all 0.2s linear; /* Opera */
 	    transition: all 0.2s linear; /* Standard */
 	}
+	.footer-name {
+		padding-bottom: 15px;
+	}
 	.fa {
 		color: #1c1c1c;
 	}
@@ -893,6 +871,15 @@ footer {
 		float: right;
 		width: 100%;
 	}
+	.back-to-top {
+		font-family: 'Yanone Kaffeesatz', sans-serif;
+		font-weight: 200;
+		font-size: 12px;
+		letter-spacing: 0.1rem;
+		text-transform: uppercase;
+		text-decoration: none;
+		color: #fff;
+	}
 
 	/*--------------------------------------------------------------
 	14.0 Colours
@@ -905,3 +892,144 @@ footer {
 
 	#1c1c1c;
 	rgb(28,28,28);
+
+/*--------------------------------------------------------------
+15.0 - Custom CSS for sections
+--------------------------------------------------------------
+*/
+#page {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#primary {
+	width: 70%;
+	margin-left: 260px;
+	margin-right: 10%;
+	padding-top: 150px;
+}
+#secondary {
+	float: right;	
+}
+h1 {
+	font-size: 1.8em;
+	margin: 10px 0
+}
+article {
+	padding-top: 50px;
+	outline: 0
+}
+.content-area {
+	text-align: right;
+}
+.cover-title {
+	font-size: 60px;
+	text-transform: uppercase;
+	font-family: 'Ostrich Sans';
+	letter-spacing: 1rem;
+}
+.name {
+	font-family: 'Ostrich Sans';
+	font-weight: 700;
+}
+
+span.pink2 {
+/*	color: rgba(255,102,204,1);*/
+	transition-delay: 0.2s;
+	-moz-transition-delay: 0.2s;
+	-webkit-transition-delay: 0.2s;
+	-o-transition-delay: 0.2s;
+}
+span.name.pink3 {
+	color: rgba(255,255,255,0.5);
+	transition-delay: 0.3s;
+	-moz-transition-delay: 0.3s;
+	-webkit-transition-delay: 0.3s;
+	-o-transition-delay: 0.3s;
+}
+.name:hover,
+span.pink2:hover {
+	cursor:pointer;
+	color: rgba(255,102,204,1);
+	-webkit-animation-duration: 1s;
+	   -moz-animation-duration: 1s;
+	    -ms-animation-duration: 1s;
+	     -o-animation-duration: 1s;
+	        animation-duration: 1s;
+	-moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear; /* WebKit */
+  -o-transition: all 0.2s linear; /* Opera */
+  transition: all 0.2s linear; /* Standard */
+}
+span.name.pink3:hover {
+	color: rgba(255,102,204,0.5);
+	-webkit-animation-duration: 1s;
+	   -moz-animation-duration: 1s;
+	    -ms-animation-duration: 1s;
+	     -o-animation-duration: 1s;
+	        animation-duration: 1s;
+	-moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear; /* WebKit */
+  -o-transition: all 0.2s linear; /* Opera */
+  transition: all 0.2s linear; /* Standard */
+}
+
+.animated {
+	-webkit-animation-duration: 2s;
+	   -moz-animation-duration: 2s;
+	    -ms-animation-duration: 2s;
+	     -o-animation-duration: 2s;
+	        animation-duration: 2s;
+	-webkit-animation-fill-mode: both;
+	   -moz-animation-fill-mode: both;
+	    -ms-animation-fill-mode: both;
+	     -o-animation-fill-mode: both;
+	        animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.fadeIn {
+	-webkit-animation-name: fadeIn;
+	-moz-animation-name: fadeIn;
+	-ms-animation-name: fadeIn;
+	-o-animation-name: fadeIn;
+	animation-name: fadeIn;
+}
+.cover-text {
+	font-size: 30px;
+	text-transform: uppercase;
+	font-family: 'Ostrich Sans';
+	letter-spacing: 1rem;
+	line-height: 60px;
+	padding: 20px;
+}
+.featured:hover {
+	cursor: pointer;
+	background: rgba(255,255,255,0.5);
+	color: rgba(255,102,204,1);
+	padding: 10px 0px 10px 10px;
+	text-decoration: none;
+		-moz-transition: background 0.5s linear;
+	  -webkit-transition: background 0.5s linear; /* WebKit */
+	  -o-transition: background 0.5s linear; /* Opera */
+	  transition: background 0.5s linear; /* Standard */
+}
+
+.featured2:hover {
+	cursor: pointer;
+	color: #9ACD32;
+	background: rgba(255,255,255,0.5);
+	padding: 10px 0px 10px 10px;
+}
+
+
+

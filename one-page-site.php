@@ -27,40 +27,29 @@ get_header(); ?>
 			?>
 			<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>	
 
-<!-- 				<h2><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h2> -->
+				<div class="cover-title animated fadeIn">
+					Hello.  I'm 
+					<astrong class="name animated fadeIn">
+						<span class="name pink2 animated fadeIn">Tammy</span><span class="name pink3 animated fadeIn">Kim</span><span class="name pink2 animated fadeIn">Kim.</span>
+					</strong>
+				</div>
+
+				<div class="cover-text animated fadeIn">
+					Front End<br>
+					<span class="featured">Web Developer</span><br>
+					<span class="featured2">/ Designer</span><br>
+					from<br>
+					Toronto.
+				</div>
+
+
 				<?php the_content(); ?>
+
 
 			<?php endwhile; endif; ?>
 
 			</div> <!-- #primary .content-area -->
 		</section><!-- #home -->
-
-
-		<?php 
-			/*
-				About Page Loop!
-			*/
-		 ?>
-		 <?php $thumb_id = get_post_thumbnail_id(66);
-	   $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'medium-size', true);
-	   $thumb_url = $thumb_url_array[0]; ?>
-		<section class="about" id="about" style="background: url(<?php echo $thumb_url ?>)">
-			<div id="primary" class="content-area">
-			<?php 
-			    $args = array(
-			        'post_type' => 'page',
-			        'p' => 66
-			    );
-			    $the_query = new WP_Query( $args );		    
-			?>
-			<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>	
-
-				<h2><?php the_title(); ?></h2>
-				<?php the_content(); ?>
-
-			<?php endwhile; endif; ?>
-			</div> <!-- #primary .content-area -->
-		</section><!-- #about -->
 
 
 		<?php 
@@ -114,26 +103,33 @@ get_header(); ?>
 
 		<?php 
 			/*
-				Blog Page Loop!
+				About Page Loop!
 			*/
 		 ?>
-		<section class="blog" id="blog">
+		 <?php $thumb_id = get_post_thumbnail_id(66);
+	   $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'medium-size', true);
+	   $thumb_url = $thumb_url_array[0]; ?>
+		<section class="about" id="about" style="background: url(<?php echo $thumb_url ?>)">
 			<div id="primary" class="content-area">
 			<?php 
 			    $args = array(
-			        'post_type' => 'post',
-			        'posts_per_page' => 3
+			        'post_type' => 'page',
+			        'p' => 66
 			    );
 			    $the_query = new WP_Query( $args );		    
 			?>
 			<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>	
 
-				<h2><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h2>
+				<h2><?php the_title(); ?></h2>
 				<?php the_content(); ?>
 
 			<?php endwhile; endif; ?>
 			</div> <!-- #primary .content-area -->
-		</section><!-- #blog -->
+		</section><!-- #about -->
+
+
+
+
 
 		<?php 
 			/*
@@ -165,3 +161,29 @@ get_header(); ?>
 		</section><!-- #contact -->
 
 
+
+		<?php 
+			/*
+				Blog Page Loop!
+			*/
+		 ?>
+		<section class="blog" id="blog">
+			<div id="primary" class="content-area">
+			<?php 
+			    $args = array(
+			        'post_type' => 'post',
+			        'posts_per_page' => 3
+			    );
+			    $the_query = new WP_Query( $args );		    
+			?>
+			<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>	
+
+				<h2><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h2>
+				<?php the_content(); ?>
+
+			<?php endwhile; endif; ?>
+			</div> <!-- #primary .content-area -->
+		</section><!-- #blog -->
+
+
+<?php get_footer(); ?>

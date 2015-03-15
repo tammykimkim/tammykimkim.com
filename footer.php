@@ -12,13 +12,13 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 
-		<div class="footer-box scrollToTop">
+		<div class="footer-box animated fadeIn scrollToTop">
 			<a href="<?php the_permalink(); ?> ">
 				<div class="footer-name">
 					<i class="fa fa-chevron-up"></i>
 					<i class="fa fa-chevron-up"></i>
 				</div>
-					<p class="main-navigation">
+					<p class="back-to-top">
 						Back to top
 					</p>
 			</a>
