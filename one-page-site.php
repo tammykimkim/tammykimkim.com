@@ -5,7 +5,6 @@
 
 get_header(); ?>
 
-
 		<?php 
 			/*
 				Home Page Loop!
@@ -30,35 +29,65 @@ get_header(); ?>
 				<div class="cover-title animated fadeIn">
 					Hello.  I'm 
 					<astrong class="name animated fadeIn">
-						<span class="name pink1 animated fadeIn">Tammy</span><span class="name pink2 animated fadeIn">Kim</span><span class="name pink3 animated fadeIn">Kim.</span>
+						<span class="name pink1 animated fadeIn">Tammy</span><!-- <span class="name pink2 animated fadeIn">Kim</span> --> <span class="name pink3 animated fadeIn">Kim.</span>
 					</strong>
 				</div>
 
 				<div class="cover-text animated fadeIn">
-						Front End<br>
+						&rsaquo; Front End<br>
 						<span class="featured">Web Developer</span><br>
 						<span class="featured2">/ Designer</span><br>
-						from Toronto.
+						from Toronto.&lsaquo;
 				</div>
 
-				<div>
-					
-					<svg version="1.1" id="logo" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
-						 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
-						 x="0px" y="0px" width="169px" height="86px" viewBox="0 0 169 86" style="enable-background:new 0 0 169 86;"
-						 xml:space="preserve">
-					</svg>
-
+				<div class="down-arrow hvr-wobble-vertical">
+					<p>Scroll Down</p>
+					<i class="fa fa-chevron-down fa-large"></i>
 				</div>
-
 
 				<?php the_content(); ?>
-
 
 			<?php endwhile; endif; ?>
 
 			</div> <!-- #primary .content-area -->
 		</section><!-- #home -->
+
+
+
+	<?php 
+		/*
+			About Page Loop!
+		*/
+	 ?>
+
+	 <?php $thumb_id = get_post_thumbnail_id(66);
+   $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'medium-size', true);
+   $thumb_url = $thumb_url_array[0]; ?>
+	<section class="about" id="about" style="background: url(<?php echo $thumb_url ?>)">
+		<div id="primary-about" class="content-area">
+
+		<?php 
+		    $args = array(
+		        'post_type' => 'page',
+		        'p' => 66
+		    );
+		    $the_query = new WP_Query( $args );		    
+		?>
+		<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>	
+
+		<div class="cover-text">
+			<h2 class="page-content">&rsaquo; <?php the_title(); ?> &lsaquo;</h2>
+		
+			<div class="about-content">
+				<?php the_content(); ?>
+			</div>
+		</div>
+
+		<?php endwhile; endif; ?>
+		</div> <!-- #primary .content-area -->
+	</section><!-- #about -->
+
+
 
 
 		<?php 
@@ -109,37 +138,6 @@ get_header(); ?>
 		</section><!-- #portfolio -->
 
 
-
-		<?php 
-			/*
-				About Page Loop!
-			*/
-		 ?>
-		 <?php $thumb_id = get_post_thumbnail_id(66);
-	   $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'medium-size', true);
-	   $thumb_url = $thumb_url_array[0]; ?>
-		<section class="about" id="about" style="background: url(<?php echo $thumb_url ?>)">
-			<div id="primary" class="content-area">
-			<?php 
-			    $args = array(
-			        'post_type' => 'page',
-			        'p' => 66
-			    );
-			    $the_query = new WP_Query( $args );		    
-			?>
-			<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>	
-
-				<h2><?php the_title(); ?></h2>
-				<?php the_content(); ?>
-
-			<?php endwhile; endif; ?>
-			</div> <!-- #primary .content-area -->
-		</section><!-- #about -->
-
-
-
-
-
 		<?php 
 			/*
 				contact Page Loop!
@@ -160,13 +158,21 @@ get_header(); ?>
 			<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>	
 
 <!-- 				<h2><?php the_title(); ?></h2> -->
-				<?php the_content(); ?>
+				<div class="contact-pad">
+					<?php the_content(); ?>
+					<div class="social-media">
+						<a href="http://twitter.com/tammykimkim2/" title="Twitter" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
+						<a href="https://www.linkedin.com/in/tammykimkim" title="LinkedIn" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a>
+						<a href="https://github.com/tammykimkim/" title="GitHub" target="_blank"><i class="fa fa-github fa-lg"></i></a>
+						<a href="http://codepen.io/tammykimkim/" title="CodePen" target="_blank"><i class="fa fa-codepen fa-lg"></i></a>
+					</div>
+				</div>
 
 			<?php endwhile; endif; ?>
 			</div> <!-- #primary .content-area -->
 			
 
-		<?php get_footer(); ?>
+<!-- 		<?php get_footer(); ?> -->
 		</section><!-- #contact -->
 
 
@@ -178,6 +184,7 @@ get_header(); ?>
 		 ?>
 		<section class="blog" id="blog">
 			<div id="primary" class="content-area">
+
 			<?php 
 			    $args = array(
 			        'post_type' => 'post',
@@ -185,18 +192,22 @@ get_header(); ?>
 			    );
 			    $the_query = new WP_Query( $args );		    
 			?>
-			<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>	
 
+			<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+
+<div class="3-columns">
 				<h2><a href="<?php echo get_permalink(); ?>">&gt; <?php the_title(); ?> &lt;</a></h2>
-				<p class="date"><?php echo get_the_date('l, F j, Y'); ?> 
+				<div class="date"><?php echo get_the_date('l, F j, Y'); ?>
+				</div> 
 
 				<div class="content">
 					<?php the_content(); ?>
 				</div>
+</div>
 
-			<?php endwhile; endif; ?>
-			</div> <!-- #primary .content-area -->
+					<?php endwhile; endif; ?>
+				</div> <!-- #primary .content-area -->
+
+			<?php get_footer(); ?>
 		</section><!-- #blog -->
 
-
-<?php get_footer(); ?>
