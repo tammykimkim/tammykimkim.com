@@ -14,7 +14,7 @@ get_header(); ?>
 	   $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'medium-size', true);
 	   $thumb_url = $thumb_url_array[0]; ?>
 
-		<section class="home" id="home" style="background: url(<?php echo $thumb_url ?>)">
+		<section class="home clearfix" id="home" style="background: url(<?php echo $thumb_url ?>)">
 			<div id="primary" class="content-area">
 
 			<?php 
@@ -63,7 +63,7 @@ get_header(); ?>
 	 <?php $thumb_id = get_post_thumbnail_id(66);
    $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'medium-size', true);
    $thumb_url = $thumb_url_array[0]; ?>
-	<section class="about" id="about" style="background: url(<?php echo $thumb_url ?>)">
+	<section class="about clearfix" id="about" style="background: url(<?php echo $thumb_url ?>)">
 		<div id="primary-about" class="content-area">
 
 		<?php 
@@ -76,10 +76,63 @@ get_header(); ?>
 		<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>	
 
 		<div class="cover-text">
-			<h2 class="page-content">&rsaquo; <?php the_title(); ?> &lsaquo;</h2>
+			<h2 class="page-content">&rsaquo; <?php the_title(); ?> &lsaquo;
+			</h2>
 		
-			<div class="about-content">
-				<?php the_content(); ?>
+			<div class="title-content">
+	<!-- 			<?php the_content(); ?> -->
+	<!-- Adding content here -->
+	<div class="p1 animated fadeIn">
+		<h5>&gt; I am a Designer and Front-End Web Developer &lt;<br>
+			with a focus on Web Design and Brand Development.
+		</h5>
+		<p class="p-hr">——————————————————–>/<——————————————————–
+		<div class="p1">
+			&lt; I love to create and build things that people can use. &gt;
+			<p class="p2">
+				&lt; I enjoy working with people that want to make a difference in other people’s lives. &gt;
+			</p>
+			<p class="p2">
+				&lt; A few of my favourite things: coffee, croissants &amp; potato chips. &gt;
+			</p>
+	</div>
+
+	<h5>&gt; This is me &lt;
+	</h5>
+	<p class="p-hr">——————————————————–>/<——————————————————–
+	<div class="p1">
+			&lt; Got schooled at Ryerson University. &gt;
+		<p class="p2">
+			&lt; Upon graduation, I had the amazing opportunity to work with the infamous pop artist, Frank Stella, who, despite his cigar smoking, has outlived many of his contemporaries, including Andy Warhol.  Traveled to NYC &amp; Houston Texas, painting, taping, &amp; spraying on location and in the Toronto studio. &gt;
+		</p>
+		<p class="p2">
+			&lt; I’ve even been to Paris. Where I ate a lot of croissants.  Like, a lot. &gt;
+		</p>
+	</div>
+
+	<h5>&gt; So what’s in a name? &lt;
+	</h5>
+	<p class="p-hr">——————————————————–>/<——————————————————–
+	<div class="p1">
+		&lt; I ended up marrying a man - an amazing man - with the same last name.<br>
+		Hence the nickname, <em>“TAMMY KIM KIM”,</em> which stuck. &gt;
+		<p class="p2">
+			Since then, I’ve had two more Kims (2 daughters), started my own business, got involved in fundraisers raising close to $10,000 for the latest one in our neighbourhood that is now 4 years running, and ran a marathon. I also used lunch making as a creative outlet to funnel some energy, which led to a blog and eventually to Hacker You, a hands-on bootcamp course for web developers where I have picked up the following skills & workflow tools:
+		</p>
+	</div>
+
+	<h5 class="skills">HTML5 / CSS3 / Sass / Responsive Design / JavaScript / jQuery / APIs / WordPress / Sublime Text / Git / GitHub / Gulp.
+	</h5>
+
+	<div class="p1">
+		I enjoy working with people that want to make a difference in other people’s lives. <br>
+		<p class="p2">
+			I also use the exclamation mark a lot… since I love bacon!   Life is beautiful!   Let's get started!
+		</p>
+	</div>
+
+	<p class="p-hr">——————————————————–>/<——————————————————–
+
 			</div>
 		</div>
 
@@ -96,8 +149,8 @@ get_header(); ?>
 			*/
 		 ?>
 
-		<section class="portfolio" id="portfolio">
-			<div id="primary" class="content-area">
+		<section class="portfolio clearfix" id="portfolio">
+			<div id="primary-portfolio" class="content-area">
 			<?php 
 			    $args = array(
 			        'post_type' => 'page',
@@ -107,13 +160,20 @@ get_header(); ?>
 			?>
 			<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>	
 
+				<div class="cover-text">
+					<h2 class="page-content">&rsaquo; <?php the_title(); ?> &lsaquo;</h2>
+				
+					<div class="title-content clearfix">
+
 
 				<!-- This loop will grab the data -->
 						<?php // we are going to pull in our latest four blog posts ?>
 						<?php $latestPosts = new WP_Query(array(
 							'post_type' => 'portfolio', // we only want blog posts
 							// 'post' => 47, // this is the id that shows up from the url
-							'posts_per_page' => 7
+							'posts_per_page' => 8,
+							'orderby' => 'menu_order',
+							'order' => 'ASC'
 						)); ?>
 
 				<!-- This will reveal how it shows up on the page -->
@@ -124,8 +184,20 @@ get_header(); ?>
 						   $thumb_url = $thumb_url_array[0]; ?>
 
 						<div class="portfolio-piece" style="background-image: url('<?php echo $thumb_url ?>')">
-							<h2><?php the_title(); ?></h2>
-						</div>
+							<h2 class="pp-title"><?php the_title(); ?></h2>
+
+<div class="terms">
+			<?php $terms = get_the_terms($post->ID, 'technologies' ); ?>
+                <?php if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) : ?>
+                        <ul>
+                            <?php foreach ( $terms as $term ) : ?>
+                            <li><?php echo $term->name ?></li>
+                            <?php endforeach ?>
+                     </ul>
+                <?php endif ?>
+
+						</div> <!-- .portfolio-piece -->
+</div> <!-- .terms -->
 
 						<?php endwhile; // end custom loop ?>
 						<?php wp_reset_postdata(); // return end back to regular schedule programming ?>
@@ -146,7 +218,7 @@ get_header(); ?>
 		 	 <?php $thumb_id = get_post_thumbnail_id(59);
 		    $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'medium-size', true);
 		    $thumb_url = $thumb_url_array[0]; ?>
-		<section class="contact" id="contact" style="background: url(<?php echo $thumb_url ?>)">
+		<section class="contact clearfix" id="contact" style="background: url(<?php echo $thumb_url ?>)">
 			<div id="primary" class="content-area">
 			<?php 
 			    $args = array(
@@ -172,7 +244,6 @@ get_header(); ?>
 			</div> <!-- #primary .content-area -->
 			
 
-<!-- 		<?php get_footer(); ?> -->
 		</section><!-- #contact -->
 
 
@@ -182,7 +253,7 @@ get_header(); ?>
 				Blog Page Loop!
 			*/
 		 ?>
-		<section class="blog" id="blog">
+		<section class="blog clearfix" id="blog">
 			<div id="primary" class="content-area">
 
 			<?php 
@@ -207,7 +278,7 @@ get_header(); ?>
 
 					<?php endwhile; endif; ?>
 				</div> <!-- #primary .content-area -->
-
-			<?php get_footer(); ?>
 		</section><!-- #blog -->
 
+
+<?php get_footer(); ?>

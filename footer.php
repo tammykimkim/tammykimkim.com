@@ -7,10 +7,10 @@
  * @package One Page Theme
  */
 ?>
-
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
+
 
 		<div class="footer-box animated fadeIn scrollToTop">
 			<a href="<?php the_permalink(); ?> ">
@@ -24,12 +24,10 @@
 			</a>
 		</div> <!-- end .footer-box -->
 
-<!-- 		<div class="site-info">
-			&copy; All Rights Reserved, <?php echo date('Y'); ?>.
-				<?php printf( __( 'Made with love: %1$s by %2$s.'), 'One Page Theme', '<a href="mailto:tammykimkim@me.com" rel="designer">Tammy Kim</a>' ); ?>
-			</div> --><!-- .site-info -->
+
 		</footer><!-- #colophon -->
 	</div><!-- #page -->
-
+	
+	<?php wp_footer(); ?>
 	</body>
 </html>
