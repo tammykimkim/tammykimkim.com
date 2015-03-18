@@ -66,77 +66,77 @@ get_header(); ?>
 	<section class="about clearfix" id="about" style="background: url(<?php echo $thumb_url ?>)">
 		<div id="primary-about" class="content-area">
 
-		<?php 
-		    $args = array(
-		        'post_type' => 'page',
-		        'p' => 66
-		    );
-		    $the_query = new WP_Query( $args );		    
-		?>
-		<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>	
+			<?php 
+			    $args = array(
+			        'post_type' => 'page',
+			        'p' => 66
+			    );
+			    $the_query = new WP_Query( $args );		    
+			?>
+			<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>	
 
-		<div class="cover-text">
-			<h2 class="page-content">&rsaquo; <?php the_title(); ?> &lsaquo;
-			</h2>
-		
-			<div class="title-content">
-	<!-- 			<?php the_content(); ?> -->
-	<!-- Adding content here -->
-	<div class="p1 animated fadeIn">
-		<h5>&gt; I am a Designer and Front-End Web Developer &lt;<br>
-			with a focus on Web Design and Brand Development.
-		</h5>
-		<p class="p-hr">——————————————————–>/<——————————————————–
-		<div class="p1">
-			&lt; I love to create and build things that people can use. &gt;
-			<p class="p2">
-				&lt; I enjoy working with people that want to make a difference in other people’s lives. &gt;
-			</p>
-			<p class="p2">
-				&lt; A few of my favourite things: coffee, croissants &amp; potato chips. &gt;
-			</p>
-	</div>
+			<div class="cover-text">
+				<h2 class="page-content">&rsaquo; <?php the_title(); ?> &lsaquo;
+				</h2>
+			
+				<div class="title-content">
+					<!-- 			<?php the_content(); ?> -->
+					<!-- Adding content here -->
+					<div class="p1 animated fadeIn">
+						<h5>&gt; I am a Designer and Front-End Web Developer &lt;<br>
+							with a focus on Web Design and Brand Development.
+						</h5>
+						<p class="p-hr">——————————————————–>/<——————————————————–</p>
+						<div class="p1">
+							&lt; I love to create and build things that people can use. &gt;
+							<p class="p2">
+								&lt; I enjoy working with people that want to make a difference in other people’s lives. &gt;
+							</p>
+							<p class="p2">
+								&lt; A few of my favourite things: coffee, croissants &amp; potato chips. &gt;
+							</p>
+					</div>
 
-	<h5>&gt; This is me &lt;
-	</h5>
-	<p class="p-hr">——————————————————–>/<——————————————————–
-	<div class="p1">
-			&lt; Got schooled at Ryerson University. &gt;
-		<p class="p2">
-			&lt; Upon graduation, I had the amazing opportunity to work with the infamous pop artist, Frank Stella, who, despite his cigar smoking, has outlived many of his contemporaries, including Andy Warhol.  Traveled to NYC &amp; Houston Texas, painting, taping, &amp; spraying on location and in the Toronto studio. &gt;
-		</p>
-		<p class="p2">
-			&lt; I’ve even been to Paris. Where I ate a lot of croissants.  Like, a lot. &gt;
-		</p>
-	</div>
+					<h5>&gt; This is me &lt;
+					</h5>
+					<p class="p-hr">——————————————————–>/<——————————————————–</p>
+					<div class="p1">
+							&lt; Got schooled at Ryerson University. &gt;
+						<p class="p2">
+							&lt; Upon graduation, I had the amazing opportunity to work with the famous pop artist, Frank Stella, who, despite his cigar smoking, has outlived many of his contemporaries, including Andy Warhol.  Traveled to NYC &amp; Houston Texas, painting, taping, &amp; spraying on location and in the Toronto studio. &gt;
+						</p>
+						<p class="p2">
+							&lt; I’ve even been to Paris. Where I ate a lot of croissants.  Like, a lot. &gt;
+						</p>
+					</div>
 
-	<h5>&gt; So what’s in a name? &lt;
-	</h5>
-	<p class="p-hr">——————————————————–>/<——————————————————–
-	<div class="p1">
-		&lt; I ended up marrying a man - an amazing man - with the same last name.<br>
-		Hence the nickname, <em>“TAMMY KIM KIM”,</em> which stuck. &gt;
-		<p class="p2">
-			Since then, I’ve had two more Kims (2 daughters), started my own business, got involved in fundraisers raising close to $10,000 for the latest one in our neighbourhood that is now 4 years running, and ran a marathon. I also used lunch making as a creative outlet to funnel some energy, which led to a blog and eventually to Hacker You, a hands-on bootcamp course for web developers where I have picked up the following skills & workflow tools:
-		</p>
-	</div>
+					<h5>&gt; So what’s in a name? &lt;
+					</h5>
+					<p class="p-hr">——————————————————–>/<——————————————————–</p>
+					<div class="p1">
+						&lt; I ended up marrying a man - an amazing man - with the same last name.<br>
+						Hence the nickname, <em>“TAMMY KIM KIM”,</em> which stuck. &gt;
+						<p class="p2">
+							Since then, I’ve had two more Kims (2 daughters), started my own business, got involved in fundraisers raising close to $10,000 for the latest one in our neighbourhood that is now 4 years running, and ran a marathon. I also used lunch making as a creative outlet to funnel some energy, which led to a blog and eventually to Hacker You, a hands-on bootcamp course for web developers where I have picked up the following skills & workflow tools:
+						</p>
+					</div>
 
-	<h5 class="skills">HTML5 / CSS3 / Sass / Responsive Design / JavaScript / jQuery / APIs / WordPress / Sublime Text / Git / GitHub / Gulp.
-	</h5>
+					<h5 class="skills">HTML5 / CSS3 / Sass / Responsive Design / JavaScript / jQuery / APIs / WordPress / Sublime Text / Git / GitHub / Gulp.
+					</h5>
 
-	<div class="p1">
-		I enjoy working with people that want to make a difference in other people’s lives. <br>
-		<p class="p2">
-			I also use the exclamation mark a lot… since I love bacon!   Life is beautiful!   Let's get started!
-		</p>
-	</div>
+					<div class="p1">
+						I enjoy working with people that want to make a difference in other people’s lives. <br>
+						<p class="p2">
+							I also use the exclamation mark a lot… since I love bacon!   Life is beautiful!   Let's get started!
+						</p>
+					</div>
 
-	<p class="p-hr">——————————————————–>/<——————————————————–
+					<p class="p-hr">——————————————————–>/<——————————————————–</p>
 
-			</div>
-		</div>
+							</div> <!-- .p1 animated fadeIn -->
+			</div> <!-- .title-content -->
 
-		<?php endwhile; endif; ?>
+			<?php endwhile; endif; ?>
 		</div> <!-- #primary .content-area -->
 	</section><!-- #about -->
 
@@ -161,10 +161,9 @@ get_header(); ?>
 			<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>	
 
 				<div class="cover-text">
-					<h2 class="page-content">&rsaquo; <?php the_title(); ?> &lsaquo;</h2>
+					<h2 class="page-content-portfolio">&rsaquo; <?php the_title(); ?> &lsaquo;</h2>
 				
 					<div class="title-content clearfix">
-
 
 				<!-- This loop will grab the data -->
 						<?php // we are going to pull in our latest four blog posts ?>
@@ -183,30 +182,34 @@ get_header(); ?>
 						   $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'medium-size', true);
 						   $thumb_url = $thumb_url_array[0]; ?>
 
-						<div class="portfolio-piece" style="background-image: url('<?php echo $thumb_url ?>')">
-							<h2 class="pp-title"><?php the_title(); ?></h2>
+					<div class="portfolio-piece" style="background-image: url('<?php echo $thumb_url ?>')">
+						<div class="terms">
+							<h2 class="pp-title"> &rsaquo; <?php the_title(); ?> &lsaquo;</h2>
+								<?php $terms = get_the_terms($post->ID, 'technologies' ); ?>
+			            <?php if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) : ?>
+                    <ul>
+                      <?php foreach ( $terms as $term ) : ?>
+	                      <li>
+		                      <?php echo $term->name ?> / </li>
+                      <?php endforeach ?>
+		                 </ul>
+			            <?php endif ?>
 
-<div class="terms">
-			<?php $terms = get_the_terms($post->ID, 'technologies' ); ?>
-                <?php if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) : ?>
-                        <ul>
-                            <?php foreach ( $terms as $term ) : ?>
-                            <li><?php echo $term->name ?></li>
-                            <?php endforeach ?>
-                     </ul>
-                <?php endif ?>
+							<div class="details">
+								<a href="#">View details 
+									<i class="fa fa-angle-double-right"></i>
+								</a>
+							</div>
 
-						</div> <!-- .portfolio-piece -->
-</div> <!-- .terms -->
+						</div> <!-- .terms -->
+					</div> <!-- .portfolio-piece -->
 
 						<?php endwhile; // end custom loop ?>
 						<?php wp_reset_postdata(); // return end back to regular schedule programming ?>
 							<!-- The above reset line will end the injected loop  -->
 
-<!-- 				<?php the_content(); ?> -->
-
 			<?php endwhile; endif; ?>
-			</div> <!-- #primary .content-area -->
+			</div> <!-- title-content -->
 		</section><!-- #portfolio -->
 
 
@@ -231,7 +234,7 @@ get_header(); ?>
 
 <!-- 				<h2><?php the_title(); ?></h2> -->
 				<div class="contact-pad">
-					<?php the_content(); ?>
+					<a title="Let's connect. Email me!" href="mailto:tammykimkim@me.com">tammykimkim@me.com</a>
 					<div class="social-media">
 						<a href="http://twitter.com/tammykimkim2/" title="Twitter" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
 						<a href="https://www.linkedin.com/in/tammykimkim" title="LinkedIn" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a>
@@ -243,10 +246,7 @@ get_header(); ?>
 			<?php endwhile; endif; ?>
 			</div> <!-- #primary .content-area -->
 			
-
 		</section><!-- #contact -->
-
-
 
 		<?php 
 			/*
@@ -254,8 +254,11 @@ get_header(); ?>
 			*/
 		 ?>
 		<section class="blog clearfix" id="blog">
-			<div id="primary" class="content-area">
+<!-- 				<h2 class="page-content-portfolio">&rsaquo; <?php the_title(); ?> &lsaquo;</h2> -->
+	<div id="primary-blog" class="content-area">
+		<div class="cover-text">
 
+			<h2 class="page-content-portfolio">&rsaquo; <strong>Blog</strong> &lsaquo;</h2>
 			<?php 
 			    $args = array(
 			        'post_type' => 'post',
@@ -263,21 +266,24 @@ get_header(); ?>
 			    );
 			    $the_query = new WP_Query( $args );		    
 			?>
-
+<div class="title-content">
 			<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
-<div class="3-columns">
 				<h2><a href="<?php echo get_permalink(); ?>">&gt; <?php the_title(); ?> &lt;</a></h2>
 				<div class="date"><?php echo get_the_date('l, F j, Y'); ?>
 				</div> 
 
-				<div class="content">
+				<div class="p1">
 					<?php the_content(); ?>
 				</div>
-</div>
+			</div>
 
+<p></p>
 					<?php endwhile; endif; ?>
+
+					</div> <!-- .cover-text -->
 				</div> <!-- #primary .content-area -->
+
 		</section><!-- #blog -->
 
 

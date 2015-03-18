@@ -45,7 +45,6 @@ and Blueprint http://www.blueprintcss.org/
 11.0 - Infinite scroll
 12.0 - Media
 	12.1 - Captions
-	12.2 - Galleries
 13.0 - Footer
 14.0 - Colours
 15.0 - Custom CSS for sections
@@ -603,6 +602,7 @@ a:active {
 	width:100%;
 	padding:16px;
 	font-size: 16px;
+	outline: 0;
 	transition: all 0.5s ease;
 	-webkit-transition: all 0.5s ease;
 }
@@ -872,61 +872,6 @@ object {
 .wp-caption .wp-caption-text {
 	margin: 0.8075em 0;
 }
-
-/*--------------------------------------------------------------
-12.2 Galleries/Portfolio section
---------------------------------------------------------------*/
-section {
-	min-height: 800px;
-}
-#primary-portfolio {
-	width: 70%;
-	margin-left: 260px;
-	margin-right: 10%;
-	padding-top: 50px;
-}
-.portfolio {
-	margin-bottom: 1.5em;
-}
-.portfolio-piece {
-	border: 1px solid #1c1c1c;
-	float: left;
-	height: 350px;
-	width: 50%;
-	background-size: cover;
-	position: relative;
-}
-.portfolio-piece:hover {
-}
-.portfolio-piece:first-child {
-	width: 100%;
-}
-h2.pp-title {
-	font-size: 20px;
-	font-family: 'Ostrich Sans';
-	font-weight: 400;
-	letter-spacing: 0.4rem;
-	line-height: 20px;
-/*	padding: 20px;*/
-	text-align: center;
-	background: rgba(255,255,255,0.5);
-	-moz-transition: all 0.3s linear;
-  -webkit-transition: all 0.3s linear; /* WebKit */
-  -o-transition: all 0.3s linear; /* Opera */
-  transition: all 0.3s linear; /* Standard */
-}
-.terms {
-	position: absolute;
-	bottom: 0;
-}
-.terms ul {
-	list-style: none;
-	background: rgba(255,255,255,0.5);
-}
-.terms ul li {
-	display: inline;
-}
-
 
 /*--------------------------------------------------------------
 13.0 Footer
@@ -1293,9 +1238,102 @@ h5 {
 	padding: 20px;
 	text-align: center;
 }
+
 /*--------------------------------------------------------------
 18.0 - Portfolio section
---------------------------------------------------------------
+--------------------------------------------------------------*/
+
+section {
+	min-height: 800px;
+	outline: 0;
+}
+.page-content-portfolio {
+	background:rgba(0,255,255,0.3);
+	color: #1c1c1c;
+	font-weight: 700;
+	text-decoration: none;
+	text-align: center;
+}
+#primary-portfolio {
+	width: 70%;
+	margin-left: 260px;
+	margin-right: 10%;
+	padding-top: 50px;
+}
+.portfolio {
+	margin-bottom: 1.5em;
+}
+.portfolio-piece {
+	border: 1px solid #f1f1f1;
+	float: left;
+	height: 350px;
+	width: 50%;
+	background-size: cover;
+	overflow: hidden;
+	position: relative;
+}
+.portfolio-piece:hover {
+}
+.portfolio-piece:first-child {
+	width: 100%;
+}
+h2.pp-title {
+	color: #fff;
+	font-size: 20px;
+	font-family: 'Ostrich Sans';
+	font-weight: 400;
+	letter-spacing: 0.4rem;
+	line-height: 20px;
+		-moz-transition: all 0.3s linear;
+	  -webkit-transition: all 0.3s linear; /* WebKit */
+	  -o-transition: all 0.3s linear; /* Opera */
+	  transition: all 0.3s linear; /* Standard */
+}
+
+.terms {
+	position: absolute;
+	bottom: 0;
+	padding: 10px;
+	bottom: -130px;
+	background: rgba(0,0,0,0.7);
+	width: 100%;
+	
+	transition: all 0.5s ease;
+}
+.terms ul {
+	list-style: none;
+}
+.terms ul li {
+	display: inline;
+	font-size: 14px;
+	letter-spacing: 1px;
+}
+.portfolio-piece:hover .terms:hover {
+  background-color: rgba(154,205,50,0.9);
+  bottom: 0;
+}
+.details {
+/*	letter-spacing: 1rem;*/
+font-style: italic;
+	font-size: 20px;
+	border: 1px solid #1c1c1c;
+	transition: all 0.5s ease;
+}
+.details:hover {
+	cursor: pointer;
+	background: rgba(255,255,255,0.7);
+}
+.details a {
+	text-decoration: none;
+	color: #1c1c1c;
+}
+.details:hover a {
+	color: 
+}
+.fa-angle-double-right:hover {
+	color: #f1f1f1;
+}
+
 /*--------------------------------------------------------------
 19.0 - Contact
 --------------------------------------------------------------
@@ -1311,30 +1349,41 @@ h5 {
 	font-size: 16px;
 	font-weight: 400;
 	letter-spacing: 0.3rem;
-	border:1px rgba(255,255,255,0.2);
 	border-radius: 10px;
-	background: rgba(255,255,255,0.1);
 	padding: 43px 37px 118px 36px;
 	-webkit-transition:background 0.2s, ease-out;
 	transition:background 0.2s, ease-out;
 }
 .contact-pad a:hover {
 	background: rgba(0,0,0,0.2);
-	color: rgba(255,102,204,0.7);
+	color: #f1f1f1;
+	text-decoration: underline;
 }
 .contact-pad a:active {
 	outline: 0;
 }
 div.social-media a {
+	background: rgba(255,255,255,0.3);
 	position: relative;
 	padding: 10px;
-	top: 340px;
+	top: 360px;
 	left: 400px;
-	border-radius: 50%;
+	border-radius: 10%;
 	outline: 0;
 }
 div.social-media a:hover {
-	background: rgba(255,255,255,0.6);
+	color: #f1f1f1;
+}
+/*.fa-twitter:hover {
+	color: rgba(89, 173, 236, 1);
+}
+.fa-linkedin:hover {
+	color: rgba(31, 137, 190, 1);
+}*/
+.fa-twitter:hover,
+.fa-linkedin:hover,
+.fa-github:hover,
+.fa-codepen:hover {
 	color: #f1f1f1;
 }
 
@@ -1342,12 +1391,18 @@ div.social-media a:hover {
 20.0 - Blog section
 --------------------------------------------------------------
 */
-.3-columns {
-	width: 30%;
-	float: left;
+#primary-blog {
+	width: 70%;
+	margin-left: 260px;
+	margin-right: 10%;
+	padding-top: 100px;
 }
-.blog {
-	padding: 5%;
+.page-content-blog {
+	background: rgba(154,205,50,0.5);
+	color: #1c1c1c;
+	font-weight: 700;
+	text-decoration: none;
+	text-align: center;
 }
 .blog h2 {
 	font-size: 30px;
@@ -1362,24 +1417,18 @@ div.social-media a:hover {
 	color: #1c1c1c;
 }
 .date {
-	padding-bottom: 40px;
 	color: #9ACD32;
 	font-size: 14px;
 	font-family: 'PT Sans Narrow', courier, sans-serif;
 	text-align: right;
 	letter-spacing: 0.3rem;
 }
-div.content {
-	color: rgba(0,0,0,0.8);
-	font-family: 'Lora', serif;
-	font-size: 16px;
-	font-weight: 400;
-	letter-spacing: 1px;
-}
+
 .more-link {
 	font-family: 'Courier', 'Open Sans', sans-serif;
 	text-decoration: none;
 	color: #9ACD32;
+	font-style: italic;
 }
 
 
