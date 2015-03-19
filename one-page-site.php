@@ -14,7 +14,7 @@ get_header(); ?>
 	   $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'medium-size', true);
 	   $thumb_url = $thumb_url_array[0]; ?>
 
-		<section class="home clearfix" id="home" style="background: url(<?php echo $thumb_url ?>)">
+		<section class="home clearfix" id="home" style="background-image: url(<?php echo $thumb_url ?>)">
 			<div id="primary" class="content-area">
 
 			<?php 
@@ -28,7 +28,7 @@ get_header(); ?>
 
 				<div class="cover-title animated fadeIn">
 					Hello.  I'm 
-					<astrong class="name animated fadeIn">
+					<strong class="name animated fadeIn">
 						<span class="name pink1 animated fadeIn">Tammy</span><!-- <span class="name pink2 animated fadeIn">Kim</span> --> <span class="name pink3 animated fadeIn">Kim.</span>
 					</strong>
 				</div>
@@ -63,7 +63,7 @@ get_header(); ?>
 	 <?php $thumb_id = get_post_thumbnail_id(66);
    $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'medium-size', true);
    $thumb_url = $thumb_url_array[0]; ?>
-	<section class="about clearfix" id="about" style="background: url(<?php echo $thumb_url ?>)">
+	<section class="about clearfix" id="about" style="background-image: url(<?php echo $thumb_url ?>)">
 		<div id="primary-about" class="content-area">
 
 			<?php 
@@ -196,7 +196,7 @@ get_header(); ?>
 			            <?php endif ?>
 
 							<div class="details">
-								<a href="#">View details 
+								<a href="<?php the_field('link') ?>" target="_blank">View it live! 
 									<i class="fa fa-angle-double-right"></i>
 								</a>
 							</div>
@@ -222,7 +222,7 @@ get_header(); ?>
 		    $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'medium-size', true);
 		    $thumb_url = $thumb_url_array[0]; ?>
 		<section class="contact clearfix" id="contact" style="background: url(<?php echo $thumb_url ?>)">
-			<div id="primary" class="content-area">
+			<div id="primary" class="content-area-contact">
 			<?php 
 			    $args = array(
 			        'post_type' => 'page',
@@ -256,9 +256,9 @@ get_header(); ?>
 		<section class="blog clearfix" id="blog">
 <!-- 				<h2 class="page-content-portfolio">&rsaquo; <?php the_title(); ?> &lsaquo;</h2> -->
 	<div id="primary-blog" class="content-area">
-		<div class="cover-text">
+		<div class="cover-text-blog">
 
-			<h2 class="page-content-portfolio">&rsaquo; <strong>Blog</strong> &lsaquo;</h2>
+			<h2 class="page-content-blog">&rsaquo; <strong>Blog</strong> &lsaquo;</h2>
 			<?php 
 			    $args = array(
 			        'post_type' => 'post',
@@ -266,17 +266,17 @@ get_header(); ?>
 			    );
 			    $the_query = new WP_Query( $args );		    
 			?>
-<div class="title-content">
+<!-- <div class="title-content"> -->
 			<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
-				<h2><a href="<?php echo get_permalink(); ?>">&gt; <?php the_title(); ?> &lt;</a></h2>
+				<h2 class=blog-post-title><<?php echo get_permalink(); ?>">&gt; <?php the_title(); ?> &lt;<i class="fa fa-pencil"></i></h2>
 				<div class="date"><?php echo get_the_date('l, F j, Y'); ?>
 				</div> 
 
 				<div class="p1">
 					<?php the_content(); ?>
 				</div>
-			</div>
+<!-- 			</div> -->
 
 <p></p>
 					<?php endwhile; endif; ?>

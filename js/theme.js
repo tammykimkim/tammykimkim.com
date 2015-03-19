@@ -6,8 +6,9 @@
 	
 	$("nav a").click(function() {
 		var link = $(this).attr('href');
+			var link = link.split('#');
 	    $('html, body').animate({
-	        scrollTop: $(link).offset().top
+	        scrollTop: $('#'+ link[1]).offset().top
 	    }, 600);
 	});	
 		
