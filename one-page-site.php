@@ -15,7 +15,7 @@ get_header(); ?>
 	   $thumb_url = $thumb_url_array[0]; ?>
 
 		<section class="home clearfix" id="home" style="background-image: url(<?php echo $thumb_url ?>)">
-			<div id="primary" class="content-area">
+			<div id="primary" class="content-area animated fadeIn">
 
 			<?php 
 			    $args = array(
@@ -27,13 +27,11 @@ get_header(); ?>
 			<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>	
 
 				<div class="cover-title animated fadeIn">
-					Hello.  I'm 
-					<strong class="name animated fadeIn">
-						<span class="name pink1 animated fadeIn">Tammy</span><!-- <span class="name pink2 animated fadeIn">Kim</span> --> <span class="name pink3 animated fadeIn">Kim.</span>
-					</strong>
+						<span>Hello.  I'm</span> 
+						<span class="name pink1 animated fadeIn delayed-1sec">Tammy</span><!-- <span class="name pink2 animated fadeIn">Kim</span> --> <span class="name pink3 animated fadeIn delayed-1-5sec">Kim.</span>
 				</div>
 
-				<div class="cover-text animated fadeIn">
+				<div class="cover-text animated fadeIn delayed-2sec">
 						&rsaquo; Front End<br>
 						<span class="featured">Web Developer</span><br>
 						<span class="featured2">/ Designer</span><br>
@@ -76,7 +74,7 @@ get_header(); ?>
 			<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>	
 
 			<div class="cover-text">
-				<h2 class="page-content">&rsaquo; <?php the_title(); ?> &lsaquo;
+				<h2 class="page-content-about">&rsaquo; <?php the_title(); ?> &lsaquo;
 				</h2>
 			
 				<div class="title-content">
@@ -258,7 +256,7 @@ get_header(); ?>
 	<div id="primary-blog" class="content-area">
 		<div class="cover-text-blog">
 
-			<h2 class="page-content-blog">&rsaquo; <strong>Blog</strong> &lsaquo;</h2>
+			<h2 class="page-content-blog">&rsaquo; Blog &lsaquo;</h2>
 			<?php 
 			    $args = array(
 			        'post_type' => 'post',

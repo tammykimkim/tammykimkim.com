@@ -153,6 +153,24 @@ a img {
 /*  font-family: 'PT Sans Narrow', sans-serif;  */
 /*  font-family: 'Droid Serif', serif;  */
 
+@font-face {
+	font-family: 'Ostrich Sans Bold';
+	src: 	url('webfonts/ostrich-sans-bold.eot?'),
+				url('webfonts/ostrich-sans-bold.eot?#iefix')format('embedded-opentype'),
+				url('webfonts/ostrich-sans-bold.woff') format('woff'), 
+				url('webfonts/ostrich-sans-bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Ostrich Sans Light';
+	src: 	url('webfonts/ostrich-sans-light.eot?'),
+				url('webfonts/ostrich-sans-light.eot?#iefix')format('embedded-opentype'),
+				url('webfonts/ostrich-sans-light.woff') format('woff'), 
+				url('webfonts/ostrich-sans-light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
 body,
 button,
 input,
@@ -987,8 +1005,7 @@ article {
 	text-align: right;
 }
 .name {
-	font-family: 'Ostrich Sans', 'Courier New', 'Lucida Console';
-	font-weight: 700;
+	font-family: 'Ostrich Sans Bold', 'Courier New', 'Lucida Console';
 	text-align: right;
 }
 .cover-text {
@@ -996,19 +1013,19 @@ article {
 	font-family: 'Ostrich Sans', 'Courier New', 'Lucida Console';
 }
 
-span.pink1 {
+.pink1 {
 /*	color: rgba(255,102,204,0.8);*/
 	transition-delay: 0.2s;
 	animation-duration: 1s;
 	transition: all 0.2s linear; /* Standard */
 }
-span.name.pink2 {
+.name.pink2 {
 	color: rgba(0,0,0,0.2);
 	transition-delay: 0.4s;
   animation-duration: 1s;
   transition: all 0.6s linear; /* Standard */
 }
-span.name.pink3 {
+.name.pink3 {
 /*	color: rgba(255,255,255,0.5);*/
 	transition-delay: 0.6s;
   animation-duration: 1s;
@@ -1182,12 +1199,13 @@ span.name.pink3:hover {
 	margin-right: 10%;
 	padding-top: 50px;
 }
-.page-content {
-	background: rgba(255,102,204,0.3);
+.page-content-about {
 	color: #1c1c1c;
-	font-weight: 700;
 	text-decoration: none;
 	text-align: center;
+	font-family: 'Ostrich Sans Bold', 'Courier New', 'Lucida Console';
+	background: rgba(255,102,204,0.3);
+	margin: 1.5em 0 0;
 }
 .title-content {
 	margin-top: 50px;
@@ -1254,9 +1272,9 @@ section {
 .page-content-portfolio {
 	background:rgba(0,255,255,0.3);
 	color: #1c1c1c;
-	font-weight: 700;
 	text-decoration: none;
 	text-align: center;
+	font-family: 'Ostrich Sans Bold', 'Courier New', 'Lucida Console';
 }
 #primary-portfolio {
 	width: 70%;
@@ -1286,7 +1304,7 @@ section {
 h2.pp-title {
 	color: #fff;
 	font-size: 20px;
-	font-family: 'Ostrich Sans';
+	font-family: 'Ostrich Sans', 'Courier New', 'Lucida Console';
 	font-weight: 400;
 	letter-spacing: 0.4rem;
 	line-height: 20px;
@@ -1414,18 +1432,17 @@ div.social-media a:hover {
 	font-size: 30px;
 	background: rgba(154,205,50,0.5);
 	color: #1c1c1c;
-	font-family: 'Ostrich Sans', courier, sans-serif;
-	font-weight: 700;
 	text-decoration: none;
 	text-align: center;
 	margin-bottom: 20px;
 	letter-spacing: 1rem;
+	font-family: 'Ostrich Sans Bold', 'Courier New', 'Lucida Console';
 }
 h2.blog-post-title {
 	text-align: center;
 	background: #fff;
 	font-size: 30px;
-	font-family: 'Ostrich Sans', courier, sans-serif;
+	font-family: 'Ostrich Sans', 'Courier New', 'Lucida Console';
 	font-weight: 400;
 	letter-spacing: 0.2rem;
 	text-align: center;
@@ -1552,3 +1569,5 @@ h2.blog-post-title {
 .mobilenav li:first-child {
     margin-top: 60px;
 }
+
+
