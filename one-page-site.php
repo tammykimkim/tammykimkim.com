@@ -168,7 +168,7 @@ get_header(); ?>
 						<?php $latestPosts = new WP_Query(array(
 							'post_type' => 'portfolio', // we only want blog posts
 							// 'post' => 47, // this is the id that shows up from the url
-							'posts_per_page' => 8,
+							'posts_per_page' => 5,
 							'orderby' => 'menu_order',
 							'order' => 'ASC'
 						)); ?>

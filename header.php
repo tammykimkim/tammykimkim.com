@@ -25,26 +25,27 @@
 </head>
 
 <body <?php body_class(); ?>>
+<?php include_once("analytics.php") ?>
 
 <!-- THIS IS THE HAMBURGLER MENU --> 
 
-<!-- <div class="mobilenav"> 
+<div class="mobilenav"> 
   <li><a href="#">Never</a></li> 
   <li><a href="#">Gonna</a></li> 
   <li><a href="#">Give</a></li> 
   <li><a href="#">You</a></li> 
   <li><a href="#">Up</a></li> 
-</div>  -->
+</div> 
 
 <!-- THIS IS THE HAMBURGLER ICON --> 
 
-<!-- <a href="javascript:void(0)" class="icon"> 
+<a href="javascript:void(0)" class="icon"> 
    <div class="hamburger"> 
      <div class="menui top-menu"></div> 
      <div class="menui mid-menu"></div> 
      <div class="menui bottom-menu"></div> 
    </div> 
-</a> -->
+</a>
 
 <!-- HEADER STARTS HERE -->
 

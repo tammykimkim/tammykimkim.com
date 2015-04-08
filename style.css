@@ -918,6 +918,9 @@ footer {
 		-webkit-transition:background 0.2s, height 0.2s;
 		transition:background 0.2s, height 0.2s;
 	}
+	.footer-box a {
+		text-decoration: none;
+	}
 	.footer-box:hover {
 		height: 100px;
 		color: #fff;
@@ -948,7 +951,6 @@ footer {
 		font-size: 12px;
 		letter-spacing: 0.1rem;
 		text-transform: uppercase;
-		text-decoration: none;
 		color: #fff;
 	}
 
@@ -1296,9 +1298,7 @@ section {
 	overflow: hidden;
 	position: relative;
 }
-.portfolio-piece:hover {
-}
-.portfolio-piece:first-child {
+.portfolio-piece:last-child {
 	width: 100%;
 }
 h2.pp-title {
@@ -1331,7 +1331,7 @@ h2.pp-title {
 	letter-spacing: 1px;
 }
 .portfolio-piece:hover .terms:hover {
-  background-color: rgba(0,255,255,0.8);
+  background-color: rgba(0,255,255,0.9);
   bottom: 0;
 }
 .details {
